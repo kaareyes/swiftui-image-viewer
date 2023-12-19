@@ -74,18 +74,18 @@ public struct ImageViewerRemote: View {
                                             self.dragOffset = value.translation
                                             self.dragOffsetPredicted = value.predictedEndTranslation
                                         }
-                                        .onEnded { value in
-                                            if((abs(self.dragOffset.height) + abs(self.dragOffset.width) > 570) || ((abs(self.dragOffsetPredicted.height)) / (abs(self.dragOffset.height)) > 3) || ((abs(self.dragOffsetPredicted.width)) / (abs(self.dragOffset.width))) > 3) {
-                                                withAnimation(.spring()) {
-                                                    self.dragOffset = self.dragOffsetPredicted
-                                                }
-                                                self.viewerShown = false
-                                                return
-                                            }
-                                            withAnimation(.interactiveSpring()) {
-                                                self.dragOffset = .zero
-                                            }
-                                        }
+//                                        .onEnded { value in
+//                                            if((abs(self.dragOffset.height) + abs(self.dragOffset.width) > 570) || ((abs(self.dragOffsetPredicted.height)) / (abs(self.dragOffset.height)) > 3) || ((abs(self.dragOffsetPredicted.width)) / (abs(self.dragOffset.width))) > 3) {
+//                                                withAnimation(.spring()) {
+//                                                    self.dragOffset = self.dragOffsetPredicted
+//                                                }
+//                                                self.viewerShown = false
+//                                                return
+//                                            }
+//                                            withAnimation(.interactiveSpring()) {
+//                                                self.dragOffset = .zero
+//                                            }
+//                                        }
                                     )
                                 })
                             }
@@ -102,18 +102,18 @@ public struct ImageViewerRemote: View {
                                                 self.dragOffset = value.translation
                                                 self.dragOffsetPredicted = value.predictedEndTranslation
                                             }
-                                            .onEnded { value in
-                                                if((abs(self.dragOffset.height) + abs(self.dragOffset.width) > 570) || ((abs(self.dragOffsetPredicted.height)) / (abs(self.dragOffset.height)) > 3) || ((abs(self.dragOffsetPredicted.width)) / (abs(self.dragOffset.width))) > 3) {
-                                                    withAnimation(.spring()) {
-                                                        self.dragOffset = self.dragOffsetPredicted
-                                                    }
-                                                    self.viewerShown = false
-                                                    return
-                                                }
-                                                withAnimation(.interactiveSpring()) {
-                                                    self.dragOffset = .zero
-                                                }
-                                            }
+//                                            .onEnded { value in
+//                                                if((abs(self.dragOffset.height) + abs(self.dragOffset.width) > 570) || ((abs(self.dragOffsetPredicted.height)) / (abs(self.dragOffset.height)) > 3) || ((abs(self.dragOffsetPredicted.width)) / (abs(self.dragOffset.width))) > 3) {
+//                                                    withAnimation(.spring()) {
+//                                                        self.dragOffset = self.dragOffsetPredicted
+//                                                    }
+//                                                    self.viewerShown = false
+//                                                    return
+//                                                }
+//                                                withAnimation(.interactiveSpring()) {
+//                                                    self.dragOffset = .zero
+//                                                }
+//                                            }
                                         )
                                 }
                                 else {
