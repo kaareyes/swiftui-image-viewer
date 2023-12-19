@@ -229,6 +229,7 @@ class PinchZoomView: UIView {
             offset = CGSize(width: location.x - startLocation.x, height: location.y - startLocation.y)
 
         case .ended, .cancelled, .failed:
+            isPinching = false
 //            withAnimation(.interactiveSpring()) {
 //                 isPinching = false
 //                 scale = 1.0
