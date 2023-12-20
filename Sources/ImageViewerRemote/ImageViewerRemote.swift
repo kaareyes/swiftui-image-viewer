@@ -221,6 +221,10 @@ class PinchZoomView: UIView {
                 startLocation = CGPoint(x: startLocation.x + jumpDifference.width, y: startLocation.y + jumpDifference.height)
 
                 numberOfTouches = gesture.numberOfTouches
+                print("double tap?")
+            }else{
+                print("single tap?")
+
             }
 
             scale = gesture.scale
