@@ -86,7 +86,7 @@ public struct ImageViewerRemote: View {
 //                                                self.dragOffset = .zero
 //                                            }
 //                                        }
-                                    )
+//                                    )
                                 })
                             }
                             else {
@@ -114,7 +114,7 @@ public struct ImageViewerRemote: View {
 //                                                    self.dragOffset = .zero
 //                                                }
 //                                            }
-                                        )
+//                                        )
                                 }
                                 else {
                                     Text(":/")
