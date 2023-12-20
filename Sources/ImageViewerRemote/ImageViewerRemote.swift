@@ -227,7 +227,7 @@ class PinchZoomView: UIView {
 //
 //            location = gesture.location(in: self)
 //            offset = CGSize(width: location.x - startLocation.x, height: location.y - startLocation.y)
-
+            break
         case .ended, .cancelled, .failed:
             isPinching = false
 //            withAnimation(.interactiveSpring()) {
