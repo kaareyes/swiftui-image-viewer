@@ -69,23 +69,23 @@ public struct ImageViewerRemote: View {
                                     .offset(x: self.dragOffset.width, y: self.dragOffset.height)
                                     .rotationEffect(.init(degrees: Double(self.dragOffset.width / 30)))
                                     .pinchToZoom()
-                                    .gesture(DragGesture()
-                                        .onChanged { value in
-                                            self.dragOffset = value.translation
-                                            self.dragOffsetPredicted = value.predictedEndTranslation
-                                        }
-                                        .onEnded { value in
-                                            if((abs(self.dragOffset.height) + abs(self.dragOffset.width) > 570) || ((abs(self.dragOffsetPredicted.height)) / (abs(self.dragOffset.height)) > 3) || ((abs(self.dragOffsetPredicted.width)) / (abs(self.dragOffset.width))) > 3) {
-                                                withAnimation(.spring()) {
-                                                    self.dragOffset = self.dragOffsetPredicted
-                                                }
-                                                self.viewerShown = false
-                                                return
-                                            }
-                                            withAnimation(.interactiveSpring()) {
-                                                self.dragOffset = .zero
-                                            }
-                                        }
+//                                    .gesture(DragGesture()
+//                                        .onChanged { value in
+//                                            self.dragOffset = value.translation
+//                                            self.dragOffsetPredicted = value.predictedEndTranslation
+//                                        }
+//                                        .onEnded { value in
+//                                            if((abs(self.dragOffset.height) + abs(self.dragOffset.width) > 570) || ((abs(self.dragOffsetPredicted.height)) / (abs(self.dragOffset.height)) > 3) || ((abs(self.dragOffsetPredicted.width)) / (abs(self.dragOffset.width))) > 3) {
+//                                                withAnimation(.spring()) {
+//                                                    self.dragOffset = self.dragOffsetPredicted
+//                                                }
+//                                                self.viewerShown = false
+//                                                return
+//                                            }
+//                                            withAnimation(.interactiveSpring()) {
+//                                                self.dragOffset = .zero
+//                                            }
+//                                        }
                                     )
                                 })
                             }
@@ -97,23 +97,23 @@ public struct ImageViewerRemote: View {
                                         .offset(x: self.dragOffset.width, y: self.dragOffset.height)
                                         .rotationEffect(.init(degrees: Double(self.dragOffset.width / 30)))
                                         .pinchToZoom()
-                                        .gesture(DragGesture()
-                                            .onChanged { value in
-                                                self.dragOffset = value.translation
-                                                self.dragOffsetPredicted = value.predictedEndTranslation
-                                            }
-                                            .onEnded { value in
-                                                if((abs(self.dragOffset.height) + abs(self.dragOffset.width) > 570) || ((abs(self.dragOffsetPredicted.height)) / (abs(self.dragOffset.height)) > 3) || ((abs(self.dragOffsetPredicted.width)) / (abs(self.dragOffset.width))) > 3) {
-                                                    withAnimation(.spring()) {
-                                                        self.dragOffset = self.dragOffsetPredicted
-                                                    }
-                                                    self.viewerShown = false
-                                                    return
-                                                }
-                                                withAnimation(.interactiveSpring()) {
-                                                    self.dragOffset = .zero
-                                                }
-                                            }
+//                                        .gesture(DragGesture()
+//                                            .onChanged { value in
+//                                                self.dragOffset = value.translation
+//                                                self.dragOffsetPredicted = value.predictedEndTranslation
+//                                            }
+//                                            .onEnded { value in
+//                                                if((abs(self.dragOffset.height) + abs(self.dragOffset.width) > 570) || ((abs(self.dragOffsetPredicted.height)) / (abs(self.dragOffset.height)) > 3) || ((abs(self.dragOffsetPredicted.width)) / (abs(self.dragOffset.width))) > 3) {
+//                                                    withAnimation(.spring()) {
+//                                                        self.dragOffset = self.dragOffsetPredicted
+//                                                    }
+//                                                    self.viewerShown = false
+//                                                    return
+//                                                }
+//                                                withAnimation(.interactiveSpring()) {
+//                                                    self.dragOffset = .zero
+//                                                }
+//                                            }
                                         )
                                 }
                                 else {
@@ -214,20 +214,20 @@ class PinchZoomView: UIView {
             numberOfTouches = gesture.numberOfTouches
 
         case .changed:
-//            if gesture.numberOfTouches != numberOfTouches {
-//                // If the number of fingers being used changes, the start location needs to be adjusted to avoid jumping.
-//                let newLocation = gesture.location(in: self)
-//                let jumpDifference = CGSize(width: newLocation.x - location.x, height: newLocation.y - location.y)
-//                startLocation = CGPoint(x: startLocation.x + jumpDifference.width, y: startLocation.y + jumpDifference.height)
-//
-//                numberOfTouches = gesture.numberOfTouches
-//            }
-//
-//            scale = gesture.scale
-//
-//            location = gesture.location(in: self)
-//            offset = CGSize(width: location.x - startLocation.x, height: location.y - startLocation.y)
-            break
+            if gesture.numberOfTouches != numberOfTouches {
+                // If the number of fingers being used changes, the start location needs to be adjusted to avoid jumping.
+                let newLocation = gesture.location(in: self)
+                let jumpDifference = CGSize(width: newLocation.x - location.x, height: newLocation.y - location.y)
+                startLocation = CGPoint(x: startLocation.x + jumpDifference.width, y: startLocation.y + jumpDifference.height)
+
+                numberOfTouches = gesture.numberOfTouches
+            }
+
+            scale = gesture.scale
+
+            location = gesture.location(in: self)
+            offset = CGSize(width: location.x - startLocation.x, height: location.y - startLocation.y)
+
         case .ended, .cancelled, .failed:
             isPinching = false
 //            withAnimation(.interactiveSpring()) {
