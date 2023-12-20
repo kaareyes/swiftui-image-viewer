@@ -214,19 +214,19 @@ class PinchZoomView: UIView {
             numberOfTouches = gesture.numberOfTouches
 
         case .changed:
-            if gesture.numberOfTouches != numberOfTouches {
-                // If the number of fingers being used changes, the start location needs to be adjusted to avoid jumping.
+//            if gesture.numberOfTouches != numberOfTouches {
+//                // If the number of fingers being used changes, the start location needs to be adjusted to avoid jumping.
 //                let newLocation = gesture.location(in: self)
 //                let jumpDifference = CGSize(width: newLocation.x - location.x, height: newLocation.y - location.y)
 //                startLocation = CGPoint(x: startLocation.x + jumpDifference.width, y: startLocation.y + jumpDifference.height)
 //
 //                numberOfTouches = gesture.numberOfTouches
-            }
-
-            scale = gesture.scale
-
-            location = gesture.location(in: self)
-            offset = CGSize(width: location.x - startLocation.x, height: location.y - startLocation.y)
+//            }
+//
+//            scale = gesture.scale
+//
+//            location = gesture.location(in: self)
+//            offset = CGSize(width: location.x - startLocation.x, height: location.y - startLocation.y)
 
         case .ended, .cancelled, .failed:
             isPinching = false
